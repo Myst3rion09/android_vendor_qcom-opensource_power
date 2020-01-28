@@ -155,4 +155,10 @@ void set_device_specific_feature(struct power_module *module __unused,
         return;
     }
 #endif
+#ifdef SINGLE_TAP_NODE
+    if (feature == POWER_FEATURE_SINGLE_TAP) {
+        sysfs_write(SINGLE_TAP_NODE, tmp_str);
+        return;
+    }
+#endif
 }
